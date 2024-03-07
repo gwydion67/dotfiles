@@ -1,0 +1,74 @@
+pinch:
+  in:
+    command: 'xdotool key ctrl+minus'
+  out:
+     command: 'xdotool key ctrl+plus'
+
+swipe:
+  3:
+    down:
+      command: 'xdotool key Super+0xff56'
+      interval: 1
+      threshold: 0.5
+    up:
+      command: 'xdotool key --clearmodifiers Super+g'
+      interval: 1
+      threshold: 0.5
+    right:
+      command: 'xdotool key Super+Right'
+      interval: 1
+      threshold: 0.5 
+      keypress:
+        LEFTALT:
+          command: 'xdotool key --clearmodifiers alt+Right'
+          interval : 1
+          threshold: 0.5
+    left:
+      command: 'xdotool key Super+Left'
+      interval: 1
+      threshold: 0.5
+      keypress:
+        LEFTALT:
+          command: 'xdotool key --clearmodifiers alt+Left'
+          interval : 1
+          threshold: 0.5
+
+  4:
+    right:
+      command: 'xdotool key Super+ctrl+Left'
+      interval: 0.5
+      threshold: 0.5
+    left:
+      command: 'xdotool key Super+ctrl+Right'
+      interval: 0.5
+      threshold: 0.5
+    up:
+      command: 'xdotool key Super+0xff55'
+      interval: 1
+      threshold: 0.5
+      keypress:
+        LEFTSHIFT:
+          command: 'xdotool key --clearmodifiers XF86AudioRaiseVolume'
+          interval: 0
+          threshold: 0
+    down:
+      command: 'xdotool key XF86AudioPlay'
+      interval: 1
+      threshold: 0.5
+      keypress:
+        LEFTSHIFT:
+          command: 'xdotool key --clearmodifiers XF86AudioLowerVolume'
+          interval: 0
+          threshold: 0
+
+
+threshold:
+  pinch: 0.1
+interval:
+  pinch: 0.1
+
+plugin:
+  inputs:
+    libinput_command_input: # options for lib/plugin/inputs/libinput_command_input
+      verbose: true
+      show-keycodes: true # https://github.com/iberianpig/fusuma-plugin-keypress#add-show-keycode-option
